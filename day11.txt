@@ -1,0 +1,954 @@
+// END of DSA // Last Lecture // 
+---------------------------------
+---------------------------------
+-
+circular Queue:
+-----------
+-
+if front is pointing next block of rear , then Q is empty
+if rear=front
+then one elem hai...
+or -1 .
+---------
+-
+front > rear : empty
+front = rear +1 : empty
+------
+front=0;
+rear=size-1:
+ q is full
+--------------
+front==rear : no ele is there
+--------------
+-
+rear=rear+1;
+rear=(rear+1) % size ; // 5%5 = 0 // points to start
+--------------------
+-
+types of Q :
+1. simple Q
+2. circular Q
+3. priority Q (max heap , min heap )
+4. Deque :  deck , spelling dkeho..
+-----------------
+-
+Pirority Q:
+e.g 5,4,3,7,9
+
+PQ(max) : 9 7 5 4 3 :  9 philea q main ajyega then 7 ... like this.
+PQ(min) : 3 4 5 7 9
+-------------------------
+-
+e.g : A, G,Z,H,R
+PQ(min) : Z,R,H,G,A
+min meand decending order main jana chchiye Q main
+---------------
+-
+4.Deque : deck
+deque : double ended queue
+-insern , delen dono side se kr skte hai.
+-jis end se insen hua , usi end se delen hoga
+-
+front , rear
+front1, rear1
+--------
+-
+values overlap ho skta hai , so one side ko restrict kro...
+else overlap ho skta hai, dono side ke bjese
+--------------
+can use any type of ds(data stcture)
+{([]}) : isme deque use kr skte hai...
+----------------------
+----------------------
+-
+insertion(i/p) restircted queue :  agar deck ko ek side se restrict kr diya to
+--------------
+-
+types of deque :
+1. input restricted deque
+   input is block at single  end but allows delen from both end
+2. output restricted deque
+   o/p is blocked at single end but allow to insen in both end
+---
+at a time dono block nhi kr skte
+-------
+application of deque :
+-chrome main back back jana
+-undo , redo wale, 
+-stack from both side
+  stack ko deque main change krke
+-----------
+-
+
+===================
+-
+Graph :
+--------------
+-
+CCEE : keliey imp hai
+---------------
+-
+-data strcuture
+- G=(V,E) 
+v - vertex
+e - edges
+----
+-
+a data sturuere that consist of set of node
+and set of edges
+that relate the nodes with each other
+-
+finite vertices chchiye
+non empty set of vertices
+-
+set of edges ( pair of verices)
+v1,v2 - pair of vertices by edges
+v2,v3 - pair of vertices by edges
+----------------------
+- Graph is specified by set of vertices(nodes ) V
+and a set of edges E
+--------------------
+-
+self loop : allowed in graph
+ek node khudko point kr rha hai.
+(5,5) : self loop
+------------
+-
+-directed lines
+  not symmetric relation
+  ab not equal to bc
+
+1 2 3 
+triangle main connect ho to :
+no of edges: 6
+1-2
+2-1
+
+1-3
+3-1
+
+2-3
+3-2
+
+-undirected lines ( bi directional hai )
+  symmetric relation
+  ab=bc
+-------------------
+-
+1 2 3 
+triangle main connect ho to :
+no of edges: 3
+
+1-2
+2-3
+3-1
+
+(jis direction main point hoga wo le lena )
+-----------------
+-
+weighted graph :
+-----------------
+-
+edges pe weight/value likha hota hai
+-
+can be dircted or undirected graph
+-------------
+-
+Directed graph :
+-------------
+-directed edge (i,j) is incident to vertex j
+and incident from vertex i
+- vertex i is adjacent to vertex j
+and 
+vertex j is adgjecnet form vertex i
+---------------
+graph terminologies :
+adjacnet nodes : jinke bich main line dran hai woh
+a ko lines/edges se kon kon krta hai woh
+
+path :  source to dirn
+might be from one node to another node ka path
+-sequenves of vertices that connects to nodes
+- can be n no of paths
+
+1-2 -> simple path
+--
+-every vertex is directly connected to every other vertex
+called complte graph
+har ek node , har ek ke sath conncet hoga to called as complete graph
+-
+but ye undirected hota hai.
+---------------
+connect na ho to woh uncomplete garph
+-------------
+cycle :
+start and end same hoga to cycle hai
+-
+a cycle is simple path with the same start and end vertex
+-----------
+degree of vertex :
+no of nodes connected hai
+via edges to each node
+
+types :( ye directed keliye hai sirf)
+1. in degree
+   baher se arrow haamre node main aa rha hai to
+   
+2. out degree
+   haamare node se arrow dusre node ko jaa rha hai to 
+----------------------
+-
+strongly connected graph :
+- directed graph  r strongly connetced if 
+there is a path from any one vertex to any other vertes
+- ek vertex se koi bhi pe jane keleiye , directed path hai to storngly connecte graph hai ..
+-----------
+-
+complete graph hai but directen ke sath :
+called as strognly connected graph
+-
+-------------------
+-
+weakely connected graph :
+directed but sare connectd nhi hai
+paths..
+--
+means agr koi node ko visit na kr paye to 
+---------------------------
+-
+aadha directed , aadha undirectd : aisa nhi rhta 
+wrong hai
+-----------------
+-
+a cyclic graph :
+ek jagah se wah pe wapsa na aa paye to 
+ye dircted main hota hai
+--------------
+-
+strongly connected garph :
+
+ek node se all node ko reach kr paye khud ke edge se 
+or kisi or ke node ke help se..
+1-2
+1-4
+1-2-3
+yaha via 2 ham 3 se coonect hai
+-----------------
+kasie bhi ho , but ever node pe ja skte from eveyr node
+thne its strongly connected graph
+else weakeliy connected graph
+------------
+-
+no of edges : undirectd graph
+
+no of possible pairs in an n vertex garph
+:
+n*(n-1)
+
+total no of edges : n*(n-1) /2;
+
+-----------------
+-
+no of edges : directd graph
+
+no of possible pairs in an n vertex garph
+:
+n*(n-1)
+
+
+edge (u,v) is not same edge (v,u)
+
+no of edges in directed graph <= n(n-1)
+, exact nhi kr skte but iske jaisa
+- dircted main nhi bata skta exact kitne hai
+--------------------------
+-
+===============
+graph represntation :
+1. adjacency matix
+2. adjaecnncy list
+----------
+-
+1. adjacency matix :
+graph ko matrix main convert kro
+no of node jitns 
+utna by utna matrix
+-----------
+-
+o(n^2) lagega
+and space bhi
+---------------
+2. adjaecnncy list :
+graph ko list se banayenge
+hashing main chining se banaye waisa krnege
+1 - 2 - 3
+2 - 4
+3 - 4
+
+o(n) space lagea and time com
+directed , undirected , dono main o(n) lagega
+---------------------------------
+---------------------------------
+-
+graph traverse :
+1. BFS :
+2. DFS :
+
+koi bhi tree, graph ho skta hai
+but koi bhi graph , tree nhi ho kta
+-----------------------
+1. BFS : breadth first search
+         - its like level by level , type, bredth se kremge
+2. DFS : depth first search
+         - depth main jao, and kroo
+ e.g
+
+===================
+IQ : imp for CCEE
+---------------------------
+-
+mam ki technique : jisko jo connected hai , woh likho , A kis kis ko pt kr rh hai , B kis kislo pt kr rha hai .
+A : B, D,E
+B : D
+C : B
+D : C
+E : D
+--
+DFS(level) : A,B,C,D,E - NICHE JAO A se
+
+BFS(sibling) : A,B,D,E,C - aage jao A ke then add missing one
+---------------
+====================
+====================
+-
+BFS : queue ds use krnege
+DFS : stack ds use krte hai
+
+------------------------
+-
+spaning tree :
+------------------
+dynamic prog + greedy technique :
+
+optimal path :
+multiple path hote hue , main ek path se ja rhi hu , optimal path , soch samjke choose kia hua path
+----
+have alll soln
+and am seeing bestest best soln optimal path called as greedy technique
+----
+dynamic progrming :
+hamne jo dekha usmese muje , sab sln se muje ek best laga, its dynamic programming
+======
+but sare main se sabse best hi chhiye then its greedy tech...
+--------------------------------------------------------------
+-
+kabhi kabhi ye do sath chlte hai
+---
+-
+best identification keliye :
+princiapal of optimcacity
+richard bellman - 1952 ne banaya hai...
+sabse best wala find krke deta hai
+--------
+
+HW :
+--------------
+greedy vs dynamic
+with exapmple
+fiboncai
+minimum cost, travling salesman
+------------------------------
+=======================
+-
+
+spanning tree :
+----
+graph ko aisa banao ki , usme cycle na ho kaha pe bhi, tree jaisa dikhea
+---------
+-
+subgraph of exisitng graph called as spaning tree
+ek graph , ko kitne bhi way se sapnning mian ban skte hai means 1,2 like
+-
+a subgraph of undirected graph G=(V,E)
+is a spanning tree
+------------------
+edge kam krke bhi , sare node leke can make spanning tree
+------------
+
+-
+ek graph se kitne bana skte hai sapping tree :
+no of nodes =5
+5-2=3
+
+5^3=itna bnega
+--------
+-
+minimum cost spaning tree :
+-------------------
+-
+
+iska , sapnning tree ke concept ka use krte hai algorithm main
+----
+1. krushkal's algorithm
+    jis ka wight kam hai wo loo and spannig tree banao
+    sare node connect hona chhiye, but no cycle , kam weight wala loo
+    - phile short edge llo , then connect kro
+2. prim's algorithm
+    - phile all vertes loo, then short edges se conncet krte jao
+----------------
+-
+iss algo se min path find kro
+----------
+-
+majorly , undirected graph keliye spanning trr bante hai , dircted main locha hoga , dirn dekhe wwehught lene pdega
+-------------
+-
+kabhi kabhi dono algo se same cost milta hai,
+kabhi nhi mila, kuch cases main
+-----------
+-
+spanning tree applicaiton :
+cabel connection
+telephone lines
+ntwk
+train railway routes
+-----------------------------
+-
+==========
+shortest path algorithm : (dynamic programming use krte hai ) isme pricipal of oprimicity use krte hai.
+1. dijkstra's algorithm
+   relaxation :
+   infinity pata nhi hai , minimum wala leke hamkahi rasta dhund rhe hai , called relation
+
+  kisi bhi nodes se all node pe jane ke min disatcne find kro
+ 
+disadvantge :
+ for negative value , it may or may not work
+use
+bellaman ford-algorithm 
+it will work for negtive
+agr isme complexity ho rha to 
+use
+
+can use floyd-warshell algorithm also
+--------------
+---------
+********
+IQ
+CCEE:
+---------
+********
+dijkestra : // shortest path 
+
+avg : O(E log |v|)
+worst : O(|v^2|)
+-----------------
+
+prims alog: // min sapnning tree
+
+avg : O(|E| log |v|)
+worst : O(|v|)^2
+-----------------------
+
+bellaman ford : // shortest path 
+
+avg : O(|E|.|v|)
+worst : O(|E|.|v|)
+-------------------
+
+floyd warhsle algo :  // shortest path 
+avg : O(|v|)^3
+worst : O(|v|)^3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
